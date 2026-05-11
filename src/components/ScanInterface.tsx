@@ -39,14 +39,14 @@ export default function ScanInterface({ onScanStart, isScanning, onStopScan, act
     setLoading(true);
 
     // Check if the website is reachable
-    try {
-      const normalizedUrl = target.startsWith('http') ? target : `https://${target}`;
-      await axios.get(normalizedUrl, { timeout: 8000 }).catch(() => {
-        // Try via our backend proxy to avoid CORS
-      });
-    } catch {
-      // Don't block — some sites block HEAD/GET from browsers due to CORS
-    }
+    // try {
+    //   const normalizedUrl = target.startsWith('http') ? target : `https://${target}`;
+    //   await axios.get(normalizedUrl, { timeout: 8000 }).catch(() => {
+    //     // Try via our backend proxy to avoid CORS
+    //   });
+    // } catch {
+    //   // Don't block — some sites block HEAD/GET from browsers due to CORS
+    // }
 
     try {
       const url = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
